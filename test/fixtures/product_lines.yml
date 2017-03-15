@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  parent: nil
+  published_at: nil
+
+parent:
+  parent: nil
+  published_at: nil
+
+child:
+  parent: parent
+  published_at: nil
