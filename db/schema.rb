@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170315133447) do
+ActiveRecord::Schema.define(version: 20170316143017) do
 
   create_table "product_lines", force: :cascade do |t|
     t.integer  "parent_id"
@@ -18,6 +18,16 @@ ActiveRecord::Schema.define(version: 20170315133447) do
     t.datetime "updated_at",   null: false
     t.datetime "published_at"
     t.index ["parent_id"], name: "index_product_lines_on_parent_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.integer  "product_line_id"
+    t.integer  "parent_id"
+    t.datetime "published_at"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["parent_id"], name: "index_products_on_parent_id"
+    t.index ["product_line_id"], name: "index_products_on_product_line_id"
   end
 
 end

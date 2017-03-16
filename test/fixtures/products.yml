@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+unpublished:
+  product_line: parent
+  parent: nil
+  published_at: nil
+
+published:
+  product_line: parent
+  parent: nil
+  published_at: <%= Time.now.to_s %>

@@ -46,4 +46,9 @@ class ProductLineTest < ActiveSupport::TestCase
     assert_includes @product_line.parents, product_lines(:child1)
     assert_includes @product_line.parents, product_lines(:parent)
   end
+
+  test "Get all products" do
+    @product_line = product_lines(:parent)
+    # @product_line.products
+  end
 end
