@@ -1,6 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+unpublished:
   parent: nil
   published_at: nil
 
@@ -8,6 +8,18 @@ parent:
   parent: nil
   published_at: nil
 
-child:
+child1:
   parent: parent
   published_at: nil
+
+child2:
+  parent: child1
+  published_at: nil
+
+child3:
+  parent: child2
+  published_at: nil
+
+published:
+  parent: nil
+  published_at: <%= Time.now.to_s %>

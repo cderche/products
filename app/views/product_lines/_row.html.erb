@@ -1,0 +1,5 @@
+<tr>
+  <td><%= index %></td>
+  <td><%= object.published_at %></td>
+  <td><%= link_to "Publish", publish_product_line_path(object) if !object.published_at? %></td>
+</tr>
