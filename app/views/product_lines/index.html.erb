@@ -1,0 +1,13 @@
+<table>
+  <thead>
+    <th>Reference</th>
+    <th>Versions</th>
+    <th>Published at</th>
+    <th colspan="2"></th>
+  </thead>
+  <tbody>
+    <% ProductLine.parents_all.each do |object| %>
+      <%= render partial: 'index_row', locals: { object: object } %>
+    <% end %>
+  </tbody>
+</table>

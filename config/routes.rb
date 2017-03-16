@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :product_lines, only: [:show] do
+  resources :product_lines, only: [:show, :index] do
     member do
       get :publish
     end

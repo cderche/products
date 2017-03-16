@@ -2,13 +2,14 @@
   <thead>
     <th>Version</th>
     <th>Published at</th>
+    <td colspan="2"></td>
   </thead>
   <tbody>
-    <%= render partial: 'row', locals: { index: "Latest", object: @product_line } %>
+    <%= render partial: 'show_row', locals: { index: "Latest", object: @product_line } %>
 
     <% index = @product_line.parents.count %>
     <% @product_line.parents.each do |object| %>
-      <%= render partial: 'row', locals: { index: index, object: object } %>
+      <%= render partial: 'show_row', locals: { index: index, object: object } %>
       <% index = index - 1 %>
     <% end %>
   </tbody>

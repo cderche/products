@@ -19,11 +19,12 @@ class ProductLineTest < ActiveSupport::TestCase
 
   end
 
-  test "Can modify published_at using publish method" do
+  test "Can publish product_line" do
     @product_line = product_lines(:unpublished)
     assert_nil @product_line.published_at
     @product_line.publish
     assert_not_nil @product_line.published_at
+    assert_not_nil @product_line.child
   end
 
   test "Can't modify a published ProductLine" do

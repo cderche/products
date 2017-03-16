@@ -1,5 +1,8 @@
 class ProductLinesController < ApplicationController
-  before_action :set_product_line
+  before_action :set_product_line, except: [:index]
+
+  def index
+  end
 
   def show
     while @product_line.child
