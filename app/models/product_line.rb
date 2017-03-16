@@ -49,7 +49,6 @@ class ProductLine < ApplicationRecord
   private
 
   def is_locked_callback
-    puts "is_locked_callback"
     throw(:abort) if self.published_at?
   end
 
