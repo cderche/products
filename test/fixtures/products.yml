@@ -9,3 +9,8 @@ published:
   product_line: parent
   parent: nil
   published_at: <%= Time.now.to_s %>
+
+all_published:
+  product_line: published
+  parent: nil
+  published_at: <%= Time.now.to_s %>

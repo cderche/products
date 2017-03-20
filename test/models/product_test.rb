@@ -20,4 +20,26 @@ class ProductTest < ActiveSupport::TestCase
     @product = products(:published)
     assert_not @product.destroy
   end
+
+  test "publish product" do
+    @product = products(:unpublished)
+    assert_not @product.published_at
+    @product.publish
+    assert @product.published_at
+  end
+
+  test "can't modify attributes of product with published product_line" do
+    @product = products(:all_published)
+
+    # Add other attributes for testing
+    assert @product.product_line.published_at?
+    puts "PL: #{@product.product_line.id}"
+
+    @prev = @product.product_line
+    @next = ProductLine.create
+
+    assert_not @product.update_attribute(:product_line, @next)
+    puts "PL: #{@product.product_line.id}"
+    # assert_equal @prev, @product.product_line
+  end
 end

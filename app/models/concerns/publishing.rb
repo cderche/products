@@ -8,7 +8,7 @@ module Publishing
 
   included do
     scope :published_all, -> { where(published_at: !nil) }
-    before_validation :is_published
+    before_save :is_published
     before_destroy :is_published
   end
 
@@ -19,8 +19,8 @@ module Publishing
   def publish
     unless published_at?
       write_attribute(:published_at, Time.now)
-      save(validate: false)
       create_child
+      save(validate: false)
     else
       raise NotAllowedError, "This object is already locked"
     end
@@ -29,6 +29,7 @@ module Publishing
   private
 
   def is_published
+    # puts "is_published: #{published_at?}"
     throw(:abort) if published_at?
     # test for Product class
     throw(:abort) if try(:product_line).try(:published_at?)

@@ -35,7 +35,14 @@ module LinkedList
     child = self.class.new(parent: self)
     # Add all attributes (except published_at)
     # Add all associations
+    if try(:products)
+      products.each do |product|
+        pchild = product.create_child
+        pchild.update_attribute(:product_line, child)
+      end
+    end
     child.save
+    child
   end
 
 end

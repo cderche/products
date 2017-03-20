@@ -22,6 +22,18 @@ class ProductLinesController < ApplicationController
     end
   end
 
+  def add_product
+    respond_to do |format|
+      if Product.create(product_line: @product_line)
+        format.html { redirect_to @product_line, notice: 'Product was successfully added.' }
+        format.json { render :show, status: :created, location: @product_line }
+      else
+        format.html { render :show }
+        format.json { render json: @product_line.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
 
   def set_product_line
